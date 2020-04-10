@@ -3,8 +3,8 @@ pipeline{
 	stages("automation"){
 		stage("playurl-downurl"){
 			steps{
-				git branch: 'dev', credentialsId: 'a43d19cc-b8a5-46f1-98f0-c4ab9bbaae5b', url: 'git@github.com:jack-wsy/playurl.git'
-				sh label: '', script: 'robot --pythonpath . --include VR --noncritical VR tc'
+				git credentialsId: '2cb0bb23-1f8a-498c-b6f4-00cc0fcc37ac', url: 'https://github.com/jack-wsy/school.git'
+				sh label: '', script: 'robot --pythonpath . tc'
 				robot onlyCritical: false, outputPath: '.', passThreshold: 90.0, unstableThreshold: 40.0
 			}
 		}
