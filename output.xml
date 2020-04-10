@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.5.0 on win32)" rpa="false" generated="20191007 14:05:30.405">
+<suite name="Uitc" id="s1" source="D:\softwareData\softWareCode\Python\algorithm\school\Uitc">
+<suite name="D-一个班级" id="s1-s1" source="D:\softwareData\softWareCode\Python\algorithm\school\Uitc\d-一个班级">
+<kw name="Run Keywords" library="BuiltIn" type="setup">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>delete student all</arg>
+<arg>AND</arg>
+<arg>delete teacher all</arg>
+<arg>AND</arg>
+<arg>delete grade all</arg>
+<arg>AND</arg>
+<arg>add grade</arg>
+<arg>${grade}</arg>
+<arg>${className}</arg>
+<arg>${studentLimit}</arg>
+</arguments>
+<kw name="Delete Student All" library="pylib.SchoolStudentLib.Student">
+<status starttime="20191007 14:05:30.620" endtime="20191007 14:05:30.780" status="PASS"></status>
+</kw>
+<kw name="Delete Teacher All" library="pylib.SchoolTeacherLib.Teacher">
+<status starttime="20191007 14:05:30.780" endtime="20191007 14:05:31.765" status="PASS"></status>
+</kw>
+<kw name="Delete Grade All" library="pylib.SchoolClassLib.Grade">
+<status starttime="20191007 14:05:31.766" endtime="20191007 14:05:31.907" status="PASS"></status>
+</kw>
+<kw name="Add Grade" library="pylib.SchoolClassLib.Grade">
+<arguments>
+<arg>${grade}</arg>
+<arg>${className}</arg>
+<arg>${studentLimit}</arg>
+</arguments>
+<status starttime="20191007 14:05:31.907" endtime="20191007 14:05:32.792" status="PASS"></status>
+</kw>
+<status starttime="20191007 14:05:30.620" endtime="20191007 14:05:32.793" status="PASS"></status>
+</kw>
+<suite name="Alogincase" id="s1-s1-s1" source="D:\softwareData\softWareCode\Python\algorithm\school\Uitc\d-一个班级\alogincase.robot">
+<test name="1" id="s1-s1-s1-t1">
+<kw name="Set Up" library="tc005001" type="setup">
+<status starttime="20191007 14:05:32.927" endtime="20191007 14:05:38.450" status="PASS"></status>
+</kw>
+<kw name="Steps" library="tc005001">
+<arguments>
+<arg>admin</arg>
+</arguments>
+<status starttime="20191007 14:05:38.454" endtime="20191007 14:05:45.072" status="PASS"></status>
+</kw>
+<kw name="Tear Down" library="tc005001" type="teardown">
+<status starttime="20191007 14:05:45.072" endtime="20191007 14:05:47.677" status="PASS"></status>
+</kw>
+<status starttime="20191007 14:05:32.926" endtime="20191007 14:05:47.678" status="PASS" critical="yes"></status>
+</test>
+<test name="2" id="s1-s1-s1-t2">
+<kw name="Set Up" library="tc005081" type="setup">
+<status starttime="20191007 14:05:47.685" endtime="20191007 14:05:51.366" status="PASS"></status>
+</kw>
+<kw name="Steps" library="tc005081">
+<msg level="INFO" timestamp="20191007 14:05:56.152">['测试学生', '松勤学院00698', '297468943913（注册码）']</msg>
+<status starttime="20191007 14:05:51.368" endtime="20191007 14:05:56.152" status="PASS"></status>
+</kw>
+<kw name="Tear Down" library="tc005081" type="teardown">
+<status starttime="20191007 14:05:56.153" endtime="20191007 14:05:58.651" status="PASS"></status>
+</kw>
+<status starttime="20191007 14:05:47.683" endtime="20191007 14:05:58.653" status="PASS" critical="yes"></status>
+</test>
+<status starttime="20191007 14:05:32.793" endtime="20191007 14:05:58.658" status="PASS"></status>
+</suite>
+<suite name="D-一个学生" id="s1-s1-s2" source="D:\softwareData\softWareCode\Python\algorithm\school\Uitc\d-一个班级\d-一个学生">
+<kw name="add a student" library="studentdata" type="setup">
+<arguments>
+<arg>${username}</arg>
+<arg>${realname}</arg>
+<arg>${gradeId}</arg>
+</arguments>
+<kw name="Get Grade" library="pylib.SchoolClassLib.Grade">
+<assign>
+<var>${list_ret}</var>
+</assign>
+<msg level="INFO" timestamp="20191007 14:05:58.743">${list_ret} = {'gradeid': None, 'retlist': [{'teacherlist': [], 'id': 236030, 'invitecode': '2360300841876', 'grade__name': '七年级', 'name': '测试一班', 'studentnumber': 0, 'studentlimit': 80}], 'retcode': 0}</msg>
+<status starttime="20191007 14:05:58.701" endtime="20191007 14:05:58.743" status="PASS"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>$list_ret['retlist'][0]</arg>
+</arguments>
+<assign>
+<var>${list_ret}</var>
+</assign>
+<msg level="INFO" timestamp="20191007 14:05:58.749">${list_ret} = {'teacherlist': [], 'id': 236030, 'invitecode': '2360300841876', 'grade__name': '七年级', 'name': '测试一班', 'studentnumber': 0, 'studentlimit': 80}</msg>
+<status starttime="20191007 14:05:58.743" endtime="20191007 14:05:58.749" status="PASS"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>$list_ret['id']</arg>
+</arguments>
+<assign>
+<var>${classId}</var>
+</assign>
+<msg level="INFO" timestamp="20191007 14:05:58.750">${classId} = 236030</msg>
+<status starttime="20191007 14:05:58.749" endtime="20191007 14:05:58.750" status="PASS"></status>
+</kw>
+<kw name="Create Phone" library="pylib.SchoolStudentLib.Student">
+<arguments>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${phonenumber}</var>
+</assign>
+<msg level="INFO" timestamp="20191007 14:05:58.750">${phonenumber} = 21528912133</msg>
+<status starttime="20191007 14:05:58.750" endtime="20191007 14:05:58.750" status="PASS"></status>
+</kw>
+<kw name="Add Student" library="pylib.SchoolStudentLib.Student">
+<arguments>
+<arg>${username}</arg>
+<arg>${realname}</arg>
+<arg>${gradeId}</arg>
+<arg>${classId}</arg>
+<arg>${phonenumber}</arg>
+</arguments>
+<assign>
+<var>${ret}</var>
+</assign>
+<msg level="INFO" timestamp="20191007 14:05:58.876">${ret} = {'retcode': 0, 'id': 29747}</msg>
+<status starttime="20191007 14:05:58.751" endtime="20191007 14:05:58.876" status="PASS"></status>
+</kw>
+<status starttime="20191007 14:05:58.700" endtime="20191007 14:05:58.877" status="PASS"></status>
+</kw>
+<suite name="Alogincase2" id="s1-s1-s2-s1" source="D:\softwareData\softWareCode\Python\algorithm\school\Uitc\d-一个班级\d-一个学生\alogincase2.robot">
+<test name="3" id="s1-s1-s2-s1-t1">
+<kw name="Set Up" library="tc005002" type="setup">
+<status starttime="20191007 14:05:58.911" endtime="20191007 14:06:02.552" status="PASS"></status>
+</kw>
+<kw name="Steps" library="tc005002">
+<status starttime="20191007 14:06:02.554" endtime="20191007 14:06:08.958" status="PASS"></status>
+</kw>
+<kw name="Tear Down" library="tc005002" type="teardown">
+<status starttime="20191007 14:06:08.959" endtime="20191007 14:06:11.577" status="PASS"></status>
+</kw>
+<status starttime="20191007 14:05:58.909" endtime="20191007 14:06:11.579" status="PASS" critical="yes"></status>
+</test>
+<status starttime="20191007 14:05:58.877" endtime="20191007 14:06:11.584" status="PASS"></status>
+</suite>
+<suite name="D-一个老师" id="s1-s1-s2-s2" source="D:\softwareData\softWareCode\Python\algorithm\school\Uitc\d-一个班级\d-一个学生\d-一个老师">
+<kw name="add a teacher" library="teacherdata" type="setup">
+<arguments>
+<arg>${username}</arg>
+<arg>${realname}</arg>
+<arg>${ms_math}</arg>
+</arguments>
+<kw name="Create Phone Or Idcard" library="pylib.SchoolTeacherLib.Teacher">
+<arguments>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${phonenumber}</var>
+</assign>
+<msg level="INFO" timestamp="20191007 14:06:11.615">${phonenumber} = 81640854231</msg>
+<status starttime="20191007 14:06:11.614" endtime="20191007 14:06:11.615" status="PASS"></status>
+</kw>
+<kw name="Create Phone Or Idcard" library="pylib.SchoolTeacherLib.Teacher">
+<arguments>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>${idcardnumber}</var>
+</assign>
+<msg level="INFO" timestamp="20191007 14:06:11.615">${idcardnumber} = 195082743596404381</msg>
+<status starttime="20191007 14:06:11.615" endtime="20191007 14:06:11.615" status="PASS"></status>
+</kw>
+<kw name="Get Grade" library="pylib.SchoolClassLib.Grade">
+<assign>
+<var>${list_ret}</var>
+</assign>
+<msg level="INFO" timestamp="20191007 14:06:11.656">${list_ret} = {'gradeid': None, 'retlist': [{'teacherlist': [], 'id': 236030, 'invitecode': '2360300841876', 'grade__name': '七年级', 'name': '测试一班', 'studentnumber': 1, 'studentlimit': 80}], 'retcode': 0}</msg>
+<status starttime="20191007 14:06:11.616" endtime="20191007 14:06:11.656" status="PASS"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>$list_ret['retlist'][0]</arg>
+</arguments>
+<assign>
+<var>${list_ret}</var>
+</assign>
+<msg level="INFO" timestamp="20191007 14:06:11.658">${list_ret} = {'teacherlist': [], 'id': 236030, 'invitecode': '2360300841876', 'grade__name': '七年级', 'name': '测试一班', 'studentnumber': 1, 'studentlimit': 80}</msg>
+<status starttime="20191007 14:06:11.656" endtime="20191007 14:06:11.658" status="PASS"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>$list_ret['id']</arg>
+</arguments>
+<assign>
+<var>${id}</var>
+</assign>
+<msg level="INFO" timestamp="20191007 14:06:11.660">${id} = 236030</msg>
+<status starttime="20191007 14:06:11.659" endtime="20191007 14:06:11.660" status="PASS"></status>
+</kw>
+<kw name="Add Teacher" library="pylib.SchoolTeacherLib.Teacher">
+<arguments>
+<arg>${username}</arg>
+<arg>${realname}</arg>
+<arg>${subjectId}</arg>
+<arg>${phonenumber}</arg>
+<arg>${email}</arg>
+<arg>${idcardnumber}</arg>
+<arg>${id}</arg>
+</arguments>
+<assign>
+<var>${ret}</var>
+</assign>
+<msg level="INFO" timestamp="20191007 14:06:13.544">${ret} = {'retcode': 0, 'id': 66395}</msg>
+<status starttime="20191007 14:06:11.660" endtime="20191007 14:06:13.544" status="PASS"></status>
+</kw>
+<status starttime="20191007 14:06:11.613" endtime="20191007 14:06:13.545" status="PASS"></status>
+</kw>
+<suite name="Publishhomework" id="s1-s1-s2-s2-s1" source="D:\softwareData\softWareCode\Python\algorithm\school\Uitc\d-一个班级\d-一个学生\d-一个老师\publishhomework.robot">
+<test name="4" id="s1-s1-s2-s2-s1-t1">
+<kw name="Set Up" library="tc005101" type="setup">
+<status starttime="20191007 14:06:13.573" endtime="20191007 14:06:24.239" status="PASS"></status>
+</kw>
+<kw name="Steps" library="tc005101">
+<arguments>
+<arg>teacher</arg>
+<arg>studentlogin</arg>
+</arguments>
+<msg level="INFO" timestamp="20191007 14:07:03.621">作业已发布给学生，任务编号为3257</msg>
+<status starttime="20191007 14:06:24.240" endtime="20191007 14:07:03.621" status="PASS"></status>
+</kw>
+<kw name="Tear Down" library="tc005101" type="teardown">
+<status starttime="20191007 14:07:03.623" endtime="20191007 14:07:10.290" status="PASS"></status>
+</kw>
+<status starttime="20191007 14:06:13.573" endtime="20191007 14:07:10.291" status="PASS" critical="yes"></status>
+</test>
+<status starttime="20191007 14:06:13.545" endtime="20191007 14:07:10.292" status="PASS"></status>
+</suite>
+<status starttime="20191007 14:06:11.594" endtime="20191007 14:07:10.296" status="PASS"></status>
+</suite>
+<status starttime="20191007 14:05:58.669" endtime="20191007 14:07:10.299" status="PASS"></status>
+</suite>
+<kw name="Run Keywords" library="BuiltIn" type="teardown">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>delete student all</arg>
+<arg>AND</arg>
+<arg>delete teacher all</arg>
+<arg>AND</arg>
+<arg>delete grade all</arg>
+</arguments>
+<kw name="Delete Student All" library="pylib.SchoolStudentLib.Student">
+<status starttime="20191007 14:07:10.303" endtime="20191007 14:07:10.563" status="PASS"></status>
+</kw>
+<kw name="Delete Teacher All" library="pylib.SchoolTeacherLib.Teacher">
+<status starttime="20191007 14:07:10.563" endtime="20191007 14:07:10.853" status="PASS"></status>
+</kw>
+<kw name="Delete Grade All" library="pylib.SchoolClassLib.Grade">
+<status starttime="20191007 14:07:10.853" endtime="20191007 14:07:11.239" status="PASS"></status>
+</kw>
+<status starttime="20191007 14:07:10.303" endtime="20191007 14:07:11.239" status="PASS"></status>
+</kw>
+<status starttime="20191007 14:05:30.439" endtime="20191007 14:07:11.239" status="PASS"></status>
+</suite>
+<status starttime="20191007 14:05:30.408" endtime="20191007 14:07:11.244" status="PASS"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="4">Critical Tests</stat>
+<stat fail="0" pass="4">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Uitc" id="s1" fail="0" pass="4">Uitc</stat>
+<stat name="D-一个班级" id="s1-s1" fail="0" pass="4">Uitc.D-一个班级</stat>
+<stat name="Alogincase" id="s1-s1-s1" fail="0" pass="2">Uitc.D-一个班级.Alogincase</stat>
+<stat name="D-一个学生" id="s1-s1-s2" fail="0" pass="2">Uitc.D-一个班级.D-一个学生</stat>
+<stat name="Alogincase2" id="s1-s1-s2-s1" fail="0" pass="1">Uitc.D-一个班级.D-一个学生.Alogincase2</stat>
+<stat name="D-一个老师" id="s1-s1-s2-s2" fail="0" pass="1">Uitc.D-一个班级.D-一个学生.D-一个老师</stat>
+<stat name="Publishhomework" id="s1-s1-s2-s2-s1" fail="0" pass="1">Uitc.D-一个班级.D-一个学生.D-一个老师.Publishhomework</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
